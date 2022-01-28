@@ -1,0 +1,200 @@
+Cluster & sub Cluster
+
+
+
+http://localhost:8080/api/req/clus/getAll
+
+
+
+
+[
+
+    {
+
+        "clusterId": "CLUS001",
+
+        "cluster": "DSI - Digital Selling & Integration",
+
+        "subClusters": [
+
+            {
+
+                "subClusId": "SUBCLUS001",
+
+                "subCluster": "Planning & Experience"
+
+            },
+
+            {
+
+                "subClusId": "SUBCLUS002",
+
+                "subCluster": "iSell"
+
+            },
+
+            {
+
+                "subClusId": "SUBCLUS003",
+
+                "subCluster": "Integration"
+
+            }
+
+        ]
+
+    },
+
+    {
+
+        "clusterId": "CLUS002",
+
+        "cluster": "R&S - Range & Supply",
+
+        "subClusters": [
+
+            {
+
+                "subClusId": "SUBCLUS004",
+
+                "subCluster": "Supplier Execution"
+
+            },
+
+            {
+
+                "subClusId": "SUBCLUS005",
+
+                "subCluster": "H&S-Del-CF"
+
+            },
+
+            {
+
+                "subClusId": "SUBCLUS006",
+
+                "subCluster": "Order Logistics"
+
+            }
+
+        ]
+
+    },
+
+    {
+
+        "clusterId": "CLUS003",
+
+        "cluster": "R&E",
+
+        "subClusters": [
+
+            {
+
+                "subClusId": "SUBCLUS007",
+
+                "subCluster": "Payments"
+
+            },
+
+            {
+
+                "subClusId": "SUBCLUS008",
+
+                "subCluster": "Food"
+
+            }
+
+        ]
+
+    },
+
+    {
+
+        "clusterId": "CLUS004",
+
+        "cluster": "Multi-Channel",
+
+        "subClusters": [
+
+            {
+
+                "subClusId": "SUBCLUS009",
+
+                "subCluster": "ADM"
+
+            },
+
+            {
+
+                "subClusId": "SUBCLUS010",
+
+                "subCluster": "WED"
+
+            }
+
+        ]
+
+    },
+
+    {
+
+        "clusterId": "CLUS005",
+
+        "cluster": "R&S - Supply Execution",
+
+        "subClusters": [
+
+            {
+
+                "subClusId": "SUBCLUS011",
+
+                "subCluster": "CUSTOMS"
+
+            },
+
+            {
+
+                "subClusId": "SUBCLUS012",
+
+                "subCluster": "CASY"
+
+            },
+
+            {
+
+                "subClusId": "SUBCLUS013",
+
+                "subCluster": "CUSIS"
+
+            },
+
+            {
+
+                "subClusId": "SUBCLUS014",
+
+                "subCluster": "HSG"
+
+            },
+
+            {
+
+                "subClusId": "SUBCLUS015",
+
+                "subCluster": "ISI"
+
+            },
+
+            {
+
+                "subClusId": "SUBCLUS016",
+
+                "subCluster": "Procurement"
+
+            }
+
+        ]
+
+    }
+
+]

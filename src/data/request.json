@@ -1,0 +1,18 @@
+{
+  "request":{
+    "reqId": "REQ000000202",
+    "area" : "SLF",
+    "clusterId": "CLUS001",
+    "coreSkill": "Core Java & ReactJs ",
+    "createdDate": "16-12-2021",
+    "gradeId": "A4",
+    "ownerId": "D S Nagraj",
+    "reasonForDemand": "New",
+    "skillDetails": "Java,Spring Boot, ReactJs",
+    "startDate": "18-12-2021",
+    "status": "open",
+    "subClusterId": "SUBCLUS001",
+    "techStack": "Java",
+    "workLocation": "Bengaluru"     
+  }
+}

@@ -1,0 +1,141 @@
+.request-page{
+    overflow: hidden;
+}
+
+.search-bar {
+    background-color: rgba(53, 155, 252, 0.685);
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
+}
+
+.mid-container{
+    height: 75vh;
+    display: flex;
+}
+
+.input {
+    display: flex;
+    width: 90%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+.input-box {
+    height: 7vh;
+    width: 65%;
+    border-radius: 50px;
+    padding: 20px 30px;
+    font-size: 25px;
+    border: none;
+    transition: 0.2s;
+    box-shadow: inset 0 0 5px black;
+    margin-left: 10vw;
+}
+.input-box:focus {
+    /* box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5); */
+    /* outline: none; */
+}
+.input-submit{
+    position: absolute;
+    width: 44px;
+    height: 40px;
+    margin: 12px;
+    border-radius: 50px;
+    right: 12vw;
+    border: none;
+    font-size: 14px;
+    background-color: #2f74c0;
+    color: white;
+    transition: 0.2s all;
+    box-shadow: 0 0 5px black;
+}
+.input-submit:hover{
+    background-color: #388ae2;
+}
+.input-submit:active{
+    transform: scale(0.8);
+    box-shadow: 0 0 5px black;
+}
+/* #search>h1{
+    position: absolute;
+    top: 20%;
+    left: 30%;
+} */
+
+/* #reqLists{
+    background-color: lightsalmon;
+    grid-area: reqList;
+    height: 90vh;
+    position: relative;
+}
+#reqLists>h1{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+} */
+
+.table-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+table{
+    height: 75%;
+    border: none;
+}
+
+thead tr{
+    height: 30px;
+}
+
+.my-table{
+    margin-left: 3vw;
+}
+
+.cardgroup-height{
+    /* height: 20vh; */
+}
+
+/* .card-height{
+    height: 5vh;
+} */
+
+.width-data{
+    width: 10vw;
+}
+
+.width-icon{
+    width: 5vw;
+}
+
+.edit-icon{
+    color: #2f74c0;
+    /* height: 5vh; */
+}
+
+.delete-icon{
+    color: red;
+}
+
+.pagination{
+    position: fixed;
+    right: 40%;
+    bottom: 7%;
+    z-index: 3;
+}
+
+.pagination .page-item{
+    margin: 0;
+    /* padding: 20px; */
+}
+
+.pagination .page-item span{
+    background-color: aliceblue;
+    width: 100%;
+    padding: 15px;
+}

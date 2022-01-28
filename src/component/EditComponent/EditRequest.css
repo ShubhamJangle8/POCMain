@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.parent-container {
+    width: 70%;
+    margin: 0 auto;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    background-color: #f2f3f4;
+    border-radius: 5px;
+}
+
+a {
+    color: black;
+}
+
+.editErr::before {
+    content: '*';
+}
+
+.editErr {
+    color: red;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 10px;
+}
+
+.component {
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: 1fr, 3fr;
+}
+
+.form {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-areas: 
+    "a b c d" 
+    "e f g h" 
+    "i i i i" 
+    "j j k k" 
+    "m n o p" 
+    "q q q q";
+}
+
+.form>div {
+    padding: 10px;
+}
+
+.text-area {
+    grid-area: i;
+}
+
+.text-area2 {
+    grid-area: q;
+}
+
+.startDate {
+    grid-area: j;
+}
+
+.createdDate {
+    grid-area: k;
+}
+.soNum{
+    grid-area: p;
+}
+
+.btns {
+    justify-content: end;
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    /* border: 1px solid black; */
+}
+
+.reset {
+    margin-right: 10px;
+}
+
+@media only screen and (max-width:768px) {
+    .parent-container {
+        width: 90%;
+        border-radius: 2px;
+        box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    }
+    .form {
+        padding: 10px;
+        display: list-item;
+        grid-template-columns: auto auto auto auto;
+    }
+    .text-area {
+        grid-area: i;
+    }
+    .form>div {
+        padding: 8px;
+    }
+    .btns {
+        justify-content: flex-end;
+        display: flex;
+        width: 100%;
+        padding: 10px;
+    }
+    textarea.form-control {
+        height: 50px;
+    }
+    .form-control {
+        height: 30px;
+    }
+    .form-select {
+        height: 30px;
+    }
+    #footer-well {
+        background-color: #f8f8ff;
+    }
+    #footer {
+        display: inline;
+    }
+    #capg-logo {
+        display: none;
+    }
+}
