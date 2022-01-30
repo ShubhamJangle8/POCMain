@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import RequestListPage from '../RequestListPage/RequestListPage';
 import './LoginPage.css'
 import Capgemini from '../../img/Capgemini.png'
-import { Form, FloatingLabel } from "react-bootstrap";
+import {auth} from '../../fireBase'
 
 function LoginPage() {
   const history = useHistory();
@@ -69,6 +69,15 @@ function LoginPage() {
     toast("Login successful!!!!")
   }
 
+  let createRequestorUser = async() => {
+    let res = await auth.createUserWithEmailAndPassword(rform.email, rform.password)
+    console.log(res)
+  }
+  let createPMOUser = async() => {
+    let res = await auth.createUserWithEmailAndPassword(pform.email, pform.password)
+    console.log(res)
+  }
+
   const handlerLogin = (e) => {
     // console.log(form);
     e.preventDefault();
@@ -86,6 +95,7 @@ function LoginPage() {
     else {
       alert('Login successful')
       // diffToast()
+      createRequestorUser()
       routeChange()
 
     }
@@ -110,6 +120,7 @@ function LoginPage() {
     else {
       alert('Login successful')
       // diffToast()
+      createPMOUser()
       routeChange()
     }
     setpErr({ email: errEmail, password: errPassword });

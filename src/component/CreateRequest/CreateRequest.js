@@ -290,7 +290,7 @@ export default function CreateRequest() {
             <Header></Header>
             <div className="col-lg-12 parent-container box">
                 <div className="container-fluid well">
-                    <div className="row text-light" style={{ backgroundColor: "#1434A4" }}>
+                    <div className="row text-light" style={{ backgroundColor: "#018BD3", width: '100%' }}>
                         <div className="col-lg-12 mt-1" style={{ width: "200px", fontSize: "large" }}>
                             <i className="fas fa-align-justify"></i> &nbsp;Request Resource
                         </div>

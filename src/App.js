@@ -14,8 +14,9 @@ function App() {
       <Switch>
         <Route exact path='/' component={LoginPage}></Route>
         <Route exact path='/reqlist' component={RequestListPage}></Route>
+        <Route exact path='/editRequest' component={EditRequest}></Route>
         <Route path="/createRequest" component={CreateRequest}></Route>
-        <Route path="/editRequest/:id" component={EditRequest}></Route>
+        {/* <Route path="/editRequest/:id" component={EditRequest}></Route> */}
         <Route exact path='/pmolist' component={PmoListPage}></Route>
         <Route exact path='/pmo/view' component={ViewRequest}></Route>
       </Switch>

@@ -2,8 +2,16 @@ import React from "react";
 import './Header.css';
 import DemandTrackerlogo from '../../img/AppLogo.png';// importing image from img folder
 import Dehaze from '../../img/dehaze.svg'; // importing image from img folder
-import { Link } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
+
 export default function Header() {
+    const history = useHistory();
+    const goToLogin = () => {
+        history.push('/')
+    }
+    const goToHome = () => {
+        history.push('/reqlist')
+    }
 
     return (
         <nav className="navbar navbar-expand-lg sticky-top bg-light navbar-light navigation">
@@ -21,10 +29,10 @@ export default function Header() {
                             <a className="nav-link active" aria-current="page"><i className="fas fa-user"></i>&nbsp;Welcome Guest</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page"><i className="fas fa-home"></i>&nbsp;Home</a>
+                            <a className="nav-link active" aria-current="page"><i className="fas fa-home" onClick={goToHome}></i>&nbsp;Home</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active"><i className="fas fa-sign-out-alt"></i>&nbsp;Logout</a>
+                            <a className="nav-link active" ><i className="fas fa-sign-out-alt" onClick={goToLogin}></i>&nbsp;Logout</a>
                         </li>
                     </ul>
                 </div>
