@@ -1,7 +1,7 @@
-.request-page {
+.request-page{
     overflow: hidden;
-
-    /* height: 100vh; */
+    /* scrollbar-width: none */
+    height: 100vh;
 }
 
 .search-bar {
@@ -19,19 +19,20 @@
     /* position: relative; */
 }
 
-.search-entries {
+.search-entries{
     /* position: relative; */
 }
-.search-entries .entries-change {
+.search-entries .entries-change{
     /* position: absolute;
     right: 1vw;
     margin: 20px;
     padding: 20px; */
 }
 
-.mid-container {
+.mid-container{
     height: 75vh;
     display: flex;
+    
 }
 
 .input {
@@ -56,21 +57,24 @@
     /* box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5); */
     outline: none;
 }
-/* .input-submit{
+.input-submit{
     position: absolute;
-
+    /* width: 38px;
+    height: 35px; */
     margin: 12px;
-
+    /* border-radius: 50px; */
     right: 12vw;
     border: none;
     font-size: 14px;
+    /* background-color: #2f74c0; */
     color: black;
     transition: 0.2s all;
-
+    /* box-shadow: 0 0 3px black; */
     display: flex;
     align-items: center;
     justify-content: center;
-} */
+}
+
 
 /* #search>h1{
     position: absolute;
@@ -89,7 +93,7 @@
     top: 50%;
     left: 30%;
 } */
-/* 
+
 .table-container{
     display: flex;
     flex-direction: column;
@@ -108,64 +112,67 @@ thead tr{
 
 .my-table{
     margin-left: 3vw;
-
+    /* border: 5px solid black; */
+    /* scroll-behavior: smooth; */
     height: 60vh;
     overflow: hidden;
     overflow-y: scroll;
     
-} */
+}
 
-.cardgroup-height {
+.cardgroup-height{
     /* height: 20vh; */
 }
 
-/* .card-head {
+.card-head{
     box-shadow: 0 0 5px 0.5px rgba(0, 0, 0, 0.5);
-    background-color: #018bd3;
+    /* border: 5px dotted rgb(231, 227, 227); */
+    background-color: #018BD3;
     color: white;
     font-weight: bolder;
 }
-.card-hover {
+.card-hover{
     box-shadow: 0 0 5px 0.2px rgba(0, 0, 0, 0.2);
 }
-.card-hover:hover {
+.card-hover:hover{
     background-color: rgb(235, 231, 231);
-} */
+  }
 
 /* .card-height{
     height: 5vh;
 } */
 
-/* .width-data {
+.width-data{
     width: 10vw;
 }
 
-.width-icon {
+.width-icon{
     width: 5vw;
 }
 
-.edit-icon {
+.edit-icon{
     color: #2f74c0;
+    /* height: 5vh; */
 }
 
-.delete-icon {
+.delete-icon{
     color: red;
 }
 
-.pagination {
+.pagination{
     position: fixed;
     right: 40%;
     bottom: 2%;
     z-index: 3;
-} */
+}
 
-/* .pagination .page-item {
+.pagination .page-item{
     margin: 0;
+    /* padding: 20px; */
+}
 
-} */
-
-/* .pagination .page-item span {
+.pagination .page-item span{
     background-color: aliceblue;
     width: 100%;
     padding: 15px;
-} */
+}
