@@ -306,7 +306,7 @@ const RequestListPage = () => {
             return requests;
         }
         else {
-            let arr = requests.filter((req) => {
+            let arr = requestArr.filter((req) => {
                 let technology = req.technology;
                 // console.log(title);
                 return technology.includes(searchText);

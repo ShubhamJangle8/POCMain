@@ -3,11 +3,14 @@ import './Header.css';
 import DemandTrackerlogo from '../../img/AppLogo.png';// importing image from img folder
 import Dehaze from '../../img/dehaze.svg'; // importing image from img folder
 import { Link, NavLink, useHistory } from "react-router-dom";
+import { auth } from '../../fireBase'
 
 export default function Header() {
     const history = useHistory();
-    const goToLogin = () => {
+    const goToLogin = async () => {
         history.push('/')
+        await auth.signOut()
+        console.log('Logged out')
     }
     const goToHome = () => {
         history.push('/reqlist')

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import login1 from '../../img/login1.svg'
 import { useHistory } from "react-router-dom";
@@ -9,10 +9,21 @@ import 'react-toastify/dist/ReactToastify.css';
 import RequestListPage from '../RequestListPage/RequestListPage';
 import './LoginPage.css'
 import Capgemini from '../../img/Capgemini.png'
-import {auth} from '../../fireBase'
+import { auth } from '../../fireBase'
 
 function LoginPage() {
   const history = useHistory();
+  const [user, setUser] = useState()
+  useEffect(() => {
+    let unsub = auth.onAuthStateChanged((user) => setUser(user))
+    return () => {
+      unsub() // cleanup
+    }
+  }, [])
+
+  let signin = async () => {
+    await auth.signInWithEmailAndPassword(rform.email, rform.password)
+  }
 
   const routeChange = () => {
     let path
@@ -69,11 +80,11 @@ function LoginPage() {
     toast("Login successful!!!!")
   }
 
-  let createRequestorUser = async() => {
+  let createRequestorUser = async () => {
     let res = await auth.createUserWithEmailAndPassword(rform.email, rform.password)
     console.log(res)
   }
-  let createPMOUser = async() => {
+  let createPMOUser = async () => {
     let res = await auth.createUserWithEmailAndPassword(pform.email, pform.password)
     console.log(res)
   }
@@ -136,8 +147,9 @@ function LoginPage() {
   }
 
   return (
-    <div className={pmo ? 'container pmo-mode' : 'container'}>
-      <div className='forms-container'>
+    <div className='forms-container'>
+      <div className={pmo ? 'container pmo-mode' : 'container'}>
+
         {/* <div className='fill'>
           <button className='' onClick={()=>console.log('fill details')}>Fill Details</button>
         </div> */}
@@ -177,7 +189,7 @@ function LoginPage() {
                   <div className='valid'>No error</div>
               }
             </div>
-            <NavLink activeClassName='login' className="nav-link btn solid" onClick={handlerLogin} to='/req'>Login</NavLink>
+            <NavLink activeClassName='login' className="nav-link btn solid" onClick={handlerLogin} to='/req'>Sign in</NavLink>
             <ToastContainer />
           </form>
           {/* : */}
@@ -244,6 +256,7 @@ function LoginPage() {
           </div>
         </div>
       </div>
+
     </div>
   )
 }

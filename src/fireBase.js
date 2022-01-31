@@ -24,3 +24,9 @@ firebase.initializeApp(firebaseConfig)
 
 export const auth = firebase.auth()
 
+const fireStore = firebase.firestore()
+
+export const database = {
+  users : fireStore.collection('users')
+}
+
