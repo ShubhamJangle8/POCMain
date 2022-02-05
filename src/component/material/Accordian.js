@@ -8,7 +8,7 @@ const Accordian = () => {
   const [data, setData] = useState(filter);
   // let a = 1;
   return (
-      <div className='accordian '>
+      <div className='accordian'>
         {
           data.map((curElement) => {
             // console.log(curElement);

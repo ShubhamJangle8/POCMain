@@ -1,20 +1,16 @@
-*{
+/* *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 .accordian{
-  /* height: 10vh; */
-  /* width: 30vw; */
   background-color: rgb(255,255,255);
   color: black;
   box-shadow: rgba(17,17,26,0.05) 0px 1px 0px, rgba(17,17,26,0.1) 0px 0px 8px;
   margin-left: 0px;
-  /* border-radius: 10px; */
   height: 95vh;
   position: relative;
-  bottom: 18vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -58,4 +54,4 @@ ul li{
   justify-content: flex-start;
   margin-left: 40px;
 }
-
+ */

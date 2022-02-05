@@ -3,12 +3,13 @@ import { useHistory } from 'react-router'
 import FloatingButton from '../FloatingButton/FloatingButton';
 import Header from '../CommonComponent/Header';
 import './ReqListPage.css'
-import searchbar from '../material/searchbar';
 import Accordian from '../material/Accordian';
 import { Row, Col, Container, Form, Button, Table, Card, CardGroup } from "react-bootstrap";
 import { useState } from 'react';
 // import { FaEdit } from "react-bootstrap-icons";
 import { MDBIcon } from "mdb-react-ui-kit";
+import { Pagination } from './Pagination';
+import { Entries } from './Entries'
 
 // import "~bootstrap/scss/bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,6 +18,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const RequestListPage = () => {
     const history = useHistory();
     let [currPage, setCurrPage] = useState(1)
+    const [page, setPage] = useState(1)
+    const previousPage = () => {
+        if (page > 1)
+            setPage(page - 1)
+    }
+    const nextPage = () => {
+        setPage(page + 1)
+    }
     const requests = [
         {
             'id': 1,
@@ -314,7 +323,7 @@ const RequestListPage = () => {
             setRequestArr(arr)
         }
     }
-    let [requestArr,setRequestArr] = useState([])
+    let [requestArr, setRequestArr] = useState([])
     requestArr = (requests.filter((req) => {
         let si = (currPage - 1) * limit;
         let ei = si + limit;
@@ -347,33 +356,39 @@ const RequestListPage = () => {
         setCurrPage(pageNum);
     }
 
+    const changeLimit = (e) => {
+        let val = e.target.value
+        setLimit(val)
+    }
+
 
 
     return (
-        <div className='request-page'>
-            <header>
+        <div className='request-page full-height relative h-[100vh] overflow-hidden'>
+            <header className=''>
                 <Header></Header>
             </header>
-
-            <section id='parentSection'>
-                <section className='search-bar'>
-                    <div className='input'>
-                        <input type="input" placeholder="Type to search:" className='input-box' value={searchText} onChange={handleChange}></input>
-                        <MDBIcon fas fa-5x='true' icon="search" className='input-submit'/>
-                    </div>
-                    <div className='d-flex align-items-center justify-content-between search-entries'>
-                        <label className='p-2'>Show</label>
-                        <input className='p-2' value={limit + " entries"}></input>
-                        <MDBIcon icon="angle-down" className='fa-2x fst-normal p-2 entries-change' onClick={setDecrementLimit} />
-                        <MDBIcon icon="angle-up" className='fa-2x fst-normal p-2 entries-change' onClick={setIncrementLimit} />
-                    </div>
-                </section>
-                <hr></hr>
-                {/* <searchbar /> */}
-                <div className='mid-container'>
+            {/* <div class="grid grid-rows-3 grid-flow-col gap-4">
+                <div class="row-span-3 ...">01</div>
+                <div class="col-span-2 ...">02</div>
+                <div class="row-span-2 col-span-2 ...">03</div>
+            </div> */}
+            <div className="grid grid-rows-4 grid-flow-col gap-4 h-[100vh]">
+                <div className="row-span-4 bg-blue-400 py-32">
                     <Accordian />
-
-                    <div className='my-table'>
+                </div>
+                <div className="col-span-2 pt-32 grid grid-cols-4 h-[5vh]">
+                    {/* <div className='col-span-1'></div> */}
+                    <div className='searchbar flex items-center border-3 col-span-3 mx-24'>
+                        <input type="input" placeholder="Type to search:" className='input-box p-2 w-full focus:outline-none' value={searchText} onChange={handleChange}></input>
+                        <MDBIcon fas fa-5x='true' icon="search" className='input-submit' />
+                    </div>
+                    <div className='col-span-1'>
+                        <Entries limit={limit} changeLimit={changeLimit} add={setIncrementLimit} subtract={setDecrementLimit} />
+                    </div>
+                </div>
+                <div className="row-span-3 col-span-2">
+                    <div className='col-span-3'>
                         <Card className='d-flex flex-row p-4 card-head'>
                             {
                                 colList.map((colHead) => {
@@ -401,10 +416,6 @@ const RequestListPage = () => {
 
                                                 )
                                             })
-
-
-
-
                                         }
                                         <div className='width-data width-icon'>
                                             <MDBIcon icon="edit" className='edit-icon fa-lg' onClick={moveToEdit} />
@@ -418,28 +429,16 @@ const RequestListPage = () => {
 
                         </CardGroup>
                     </div>
-                </div >
-                <div className='pagination'>
-                    <ul className="pagination">
-                        {
-                            numberOfPagesArr.map((pageNumber) => {
-                                let className = pageNumber == currPage ? "page-item active" : "page-item"
-                                return (
-                                    <li key={pageNumber} className={className} onClick={() => { pageChangeHandle(pageNumber) }}>
-                                        <span className="page-link">
-                                            {pageNumber}
-                                        </span>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
                 </div>
-                <article id='reqLists'>
+                <div className="absolute left-[45vw] bottom-[1vh]">
+                    <Pagination page={page} prevPage={previousPage} nextPage={nextPage} />
+                    <article className='absolute left-[20vw] bottom-[1vh]'>
+                        <FloatingButton></FloatingButton>
+                    </article>
+                </div>
+            </div>
 
-                    <FloatingButton></FloatingButton>
-                </article>
-            </section >
+
         </div >
     )
 }

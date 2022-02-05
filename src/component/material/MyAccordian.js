@@ -15,15 +15,16 @@ const MyAccordian = ({ id, question, answer }) => {
   // }
   return (
     <>
-      <div className='main-heading'>
+      <div className='main-heading flex justify-between'>
 
-        <h3>{question} </h3>
-
+        <h3 className='mx-4 my-3'>{question} </h3>
+        <div className='mx-4 my-3'>
         {
           show ?
-            <MDBIcon icon="angle-down" className='fa-2x fst-normal' onClick={() => setShow(!show)} /> :
-            <MDBIcon icon="angle-up" className='fa-2x' onClick={() => setShow(!show)} />
+          <MDBIcon icon="angle-down" className='fa-2x fst-normal' onClick={() => setShow(!show)} /> :
+          <MDBIcon icon="angle-up" className='fa-2x' onClick={() => setShow(!show)} />
         }
+        </div>
 
 
       </div>
