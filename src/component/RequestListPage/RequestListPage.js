@@ -364,70 +364,148 @@ const RequestListPage = () => {
 
 
     return (
-        <div className='request-page full-height relative h-[100vh] overflow-hidden'>
+        <div className='request-page full-height relative overflow-hidden'>
             <header className=''>
                 <Header></Header>
             </header>
-            {/* <div class="grid grid-rows-3 grid-flow-col gap-4">
-                <div class="row-span-3 ...">01</div>
-                <div class="col-span-2 ...">02</div>
-                <div class="row-span-2 col-span-2 ...">03</div>
+            {/* <div className="grid grid-rows-3 grid-flow-col gap-4">
+                <div className="row-span-3 ...">01</div>
+                <div className="col-span-2 ...">02</div>
+                <div className="row-span-2 col-span-2 ...">03</div>
             </div> */}
             <div className="grid grid-rows-4 grid-flow-col gap-4 h-[100vh]">
                 <div className="row-span-4 bg-blue-400 py-32">
                     <Accordian />
                 </div>
-                <div className="col-span-2 pt-32 grid grid-cols-4 h-[5vh]">
+                <div className="search col-span-2 pt-32 h-[5vh] xl:my-3 mx-auto lg:flex xl:flex-row xl:items-center xl:justify-evenly">
                     {/* <div className='col-span-1'></div> */}
-                    <div className='searchbar flex items-center border-3 col-span-3 mx-24'>
-                        <input type="input" placeholder="Type to search:" className='input-box p-2 w-full focus:outline-none' value={searchText} onChange={handleChange}></input>
+                    <div className='searchbar flex items-center mx-5 w-[40vw]'>
+                        <input type="input" placeholder="Type to search:" className='input-box p-2 w-full focus:outline-none border-3' value={searchText} onChange={handleChange}></input>
                         <MDBIcon fas fa-5x='true' icon="search" className='input-submit' />
                     </div>
-                    <div className='col-span-1'>
+                    <div className='w-[10vw] mr-[10vw]'>
                         <Entries limit={limit} changeLimit={changeLimit} add={setIncrementLimit} subtract={setDecrementLimit} />
                     </div>
                 </div>
-                <div className="row-span-3 col-span-2">
+                <div className="my-table row-span-3 col-span-2 overflow-y-scroll">
                     <div className='col-span-3'>
-                        <Card className='d-flex flex-row p-4 card-head'>
+                        <Card className='flex flex-row justify-between py-4 px-3 sm:w-[87vw]'>
                             {
                                 colList.map((colHead) => {
                                     return (
                                         // <div className='d-flex'>
 
-                                        < div className='width-data' ><h5>{colHead}</h5> </div>
+                                        < div className='text-left' ><h5 className='w-[11vw]'>{colHead}</h5> </div>
 
                                         // </div>
 
                                     )
                                 })
                             }
+                            <div className='text-left' >
+                                <h5 className='w-[10vw]'>Edit</h5>
+                            </div>
+                            <div className='text-left' >
+                                <h5 className='w-[10vw]'>Delete</h5>
+                            </div>
                         </Card>
-                        <CardGroup className='d-flex flex-column'>
+                        <CardGroup className='flex flex-column justify-between'>
 
                             {requestArr.map((req) => {
 
                                 return (
-                                    <Card className='d-flex flex-row p-4 card-hover' data-aos="zoom-in">
+                                    <Card className='flex flex-row justify-between py-4 px-3 w-[87vw]' data-aos="zoom-in">
                                         {
                                             colList.map((colHead) => {
                                                 return (
-                                                    <div className='width-data'>{req[colHead.toLowerCase()]}</div>
+                                                    <div className='text-left'><h6 className='w-[11vw]'>{req[colHead.toLowerCase()]}</h6></div>
 
                                                 )
                                             })
                                         }
-                                        <div className='width-data width-icon'>
-                                            <MDBIcon icon="edit" className='edit-icon fa-lg' onClick={moveToEdit} />
+                                        <div className='w-[10vw]' onClick={moveToEdit}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                            </svg>
                                         </div>
-                                        <div className='width-data width-icon'>
-                                            <MDBIcon icon="trash-alt" className='delete-icon fa-lg' onClick={deleteRequest} />
+                                        <div className='w-[10vw]' onClick={deleteRequest}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.878L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                            </svg>
                                         </div>
                                     </Card>
                                 )
                             })}
 
                         </CardGroup>
+
+                        {/* <div className="text-gray-900 bg-gray-200 overflow-y-auto">
+                            <div className="flex justify-center">
+                                <table className="w-full text-md bg-white shadow-md rounded mb-4">
+                                    <tbody className="scroll">
+                                        <tr className="border-5 flex">
+                                            <th className="text-left p-4 px-5">ID</th>
+                                            <th className="text-left p-4 px-5">Technology</th>
+                                            <th className="text-left p-4 px-5">Grade</th>
+                                            <th className="text-left p-4 px-5">Last Modified Date</th>
+                                            <th className="text-left p-4 px-5">Status</th>
+                                            <th className="text-left p-4 px-5">Cluster</th>
+                                            <th></th>
+                                            <th></th>
+                                            {
+                                                colList.map((colHead) => {
+                                                    return (
+                                                        
+
+                                                        < div className='text-left p-4 px-5' ><h5>{colHead}</h5> </div>
+
+                                                      
+
+                                                    )
+                                                })
+                                            }
+                                        </tr>
+                                        <tr>
+                                            {requestArr.map((req) => {
+
+                                                return (
+                                                    <Card className='flex flex-row justify-between p-4 card-hover' data-aos="zoom-in">
+                                                        {
+                                                            colList.map((colHead) => {
+                                                                return (
+                                                                    <div className='width-data'>{req[colHead.toLowerCase()]}</div>
+
+                                                                )
+                                                            })
+                                                        }
+                                                        <div className='width-data width-icon'>
+                                                            <MDBIcon icon="edit" className='edit-icon fa-lg' onClick={moveToEdit} />
+                                                        </div>
+                                                        <div className='width-data width-icon'>
+                                                            <MDBIcon icon="trash-alt" className='delete-icon fa-lg' onClick={deleteRequest} />
+                                                        </div>
+                                                    </Card>
+                                                )
+                                            })}
+                                        </tr>
+                                        <tr className="border-b hover:bg-orange-100 bg-gray-100">
+                                            <td className="text-left p-4 px-5">A</td>
+                                            <td className="text-left p-4 px-5">A</td>
+                                            <td className="text-left p-4 px-5">A</td>
+                                            <td className="text-left p-4 px-5">A</td>
+                                            <td className="text-left p-4 px-5">A</td>
+                                            <td className="text-left p-4 px-5">A</td>
+
+
+
+                                            <td className="p-3 px-5 flex justify-end"><button type="button" className="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Save</button><button type="button" className="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button></td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> */}
+
                     </div>
                 </div>
                 <div className="absolute left-[45vw] bottom-[1vh]">
